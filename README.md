@@ -1,4 +1,4 @@
-# party Night Website
+# Party Night Website
 
 ## Overview
 
