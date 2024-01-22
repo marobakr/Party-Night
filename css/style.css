@@ -1,0 +1,640 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Montserrat:wght@400;500;600&display=swap');
+/* Start Global Style */
+
+/* Keyframes File */
+@import url(./keyframes.css);
+:root {
+  --main-color: #f34d4f;
+  --alt-color: #ffb30f;
+  --global-bg: #01ff95;
+  --main-transition: all 0.5s;
+  --main-padding: 6.25rem;
+  --main-bg-layer: rgba(0, 0, 0, 0.5);
+}
+:root {
+  scroll-behavior: auto;
+}
+@media (max-width: 550px) {
+  html {
+    font-size: 10px;
+  }
+  .hero h1 {
+    width: 100% !important;
+    font-size: 20px !important;
+  }
+}
+.min-style-btn {
+  background-image: linear-gradient(
+    150deg,
+    var(--main-color) 40%,
+    var(--alt-color) 100%
+  );
+}
+.outline-btn {
+  border: 0.0625rem solid var(--main-color);
+  background-color: transparent;
+  color: var(--main-color);
+  transition: var(--main-transition);
+}
+.outline-btn:hover {
+  border-color: #fff;
+  color: #fff;
+}
+.bg-overlay {
+  inset: 0;
+  background-color: var(--main-bg-layer);
+}
+body {
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+}
+li {
+  list-style: none;
+}
+a {
+  font-weight: 500;
+}
+h1,
+h2 {
+  font-weight: 700;
+}
+h4 {
+  font-weight: 400;
+}
+h5,
+h3,
+h4 {
+  font-weight: 600;
+}
+h6 {
+  font-weight: 500;
+}
+.w-15 {
+  width: 0.9375rem;
+  color: white;
+}
+p {
+  text-wrap: wrap;
+}
+/* End Global Style */
+
+/* Start Navbar */
+nav {
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  transition: var(--main-transition);
+}
+
+nav .container {
+  transition: var(--main-transition);
+}
+nav .w-200 {
+  width: 12.5rem;
+}
+/* Top and Bottom borders go out */
+
+nav .ul-menu li {
+  position: relative;
+}
+nav .ul-menu a:before,
+.ul-menu a:after {
+  position: absolute;
+  left: 0px;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  content: '';
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+nav .ul-menu a:before {
+  top: 0px;
+  transform: translateY(10px);
+}
+
+nav .ul-menu a:after {
+  bottom: 0px;
+  transform: translateY(-10px);
+}
+
+nav .ul-menu a:hover:before,
+.ul-menu a:hover:after,
+nav .ul-menu a.active:before,
+.ul-menu a.active:after {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+/* Top and Bottom borders come in */
+nav .ul-menu a:before,
+.ul-menu a:after {
+  position: absolute;
+  left: 0px;
+  width: 100%;
+  height: 2px;
+  background-image: linear-gradient(
+    150deg,
+    var(--main-color) 40%,
+    var(--alt-color) 100%
+  );
+  content: '';
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+nav .ul-menu a:before {
+  top: 0px;
+  transform: translateY(-10px);
+}
+
+nav .ul-menu a:after {
+  bottom: 0px;
+  transform: translateY(10px);
+}
+nav .icons i {
+  transition: var(--main-transition);
+  cursor: pointer;
+}
+nav .icons i:hover {
+  color: var(--alt-color);
+  animation: scaling 0.5s linear infinite alternate;
+}
+nav .btn-links {
+  background-color: var(--alt-color);
+  color: var(--alt-color);
+}
+/* End Navbar */
+
+/* Start Hero */
+.hero {
+  display: none;
+  background-image: url(../img/let-s-get-party-scaled.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 85vh;
+  z-index: 1;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: var(--main-bg-layer);
+  z-index: -1;
+}
+
+.animation {
+  display: none;
+}
+.hero h1 {
+  width: 70%;
+  margin: auto;
+  font-size: 64px;
+  text-wrap: wrap;
+}
+.hero .fs-24 {
+  font-size: 1.5rem;
+}
+
+.hero .one:hover {
+  background-image: linear-gradient(150deg, #fff, #fff 100%);
+  color: #000;
+}
+/* End Hero */
+/* Start Event  */
+.elementor {
+  position: relative;
+  overflow: hidden;
+  padding: var(--main-padding) 0;
+  padding-top: 7vh;
+  background-image: url(../img/dg-bg.jpg);
+  min-height: 100vh;
+  background-position: center;
+  background-size: cover;
+  z-index: 1;
+}
+.elementor::before {
+  position: absolute;
+  content: '';
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(at center center, #262626e8 0%, #141414 75%);
+}
+.elementor .line-title {
+  flex-grow: 1;
+}
+.elementor .line-title .psodo-element {
+  background-color: #787878;
+  height: 0.0625rem;
+  flex-grow: 1;
+}
+.elementor .bg-parent {
+  background-color: #14141478;
+}
+
+.elementor .float-counter {
+  top: -1.25rem;
+  transform: translateX(-50%);
+  left: 0rem;
+  padding: 0.3125rem 1.25rem;
+  background-color: var(--global-bg);
+  z-index: 5;
+}
+@media (max-width: 600px) {
+  .elementor .float-counter {
+    transform: translateX(0%);
+  }
+}
+
+.elementor .bg-parent img {
+  min-height: 15.625rem;
+}
+.elementor .counter {
+  background-color: #14141478;
+  font-family: Montserrat;
+}
+
+/* End Event  */
+/* Start About */
+.about {
+  padding: var(--main-padding);
+  background-image: url(../img/crowd-of-people-clubbing-at-live-concert-at-music-festival-scaled.jpg);
+  background-position: center;
+  background-size: cover;
+  min-height: 100vh;
+  z-index: 0;
+}
+.about h5 {
+  font-weight: 300;
+  font-size: 1.25rem;
+}
+.about h2 {
+  font-weight: 600;
+}
+
+.about > .bg-overlay {
+  background-image: linear-gradient(180deg, #262626 0%, #262626e3 100%);
+  z-index: -1;
+}
+.about .counter .fs-48 {
+  font-size: 3rem;
+}
+.about .counter .title {
+  font-size: 1.125rem;
+}
+.about .num {
+  display: none;
+}
+/* End About */
+
+/* Start Discography */
+.discography {
+  padding: var(--main-padding);
+  background-color: #262626;
+}
+.discography .card {
+  display: none;
+}
+.discography .card-footer small {
+  color: #fff;
+  font-weight: 700;
+}
+.discography .card-footer {
+  background-color: #262626;
+}
+.discography .card-footer .icons span {
+  padding-inline: 0.625rem;
+}
+.discography .overlay-content {
+  transition: all 1.5s;
+  inset: 0;
+  background-color: transparent;
+}
+.discography .overlay-content .inner-content p {
+  display: none;
+}
+.discography .overlay-content .inner-content button {
+  display: none;
+}
+.discography .overlay-content .inner-content h2 {
+  font-size: 1.25rem;
+  display: none;
+}
+/* End Discography */
+
+/* Start Vedios Slider */
+.vedio-slider {
+  background-image: url('../img/people-dancing-in-the-club-1.jpg');
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 80vh;
+  z-index: 1;
+}
+.vedio-slider::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: var(--main-bg-layer);
+  z-index: -1;
+}
+.vedio-slider h5 {
+  font-weight: 400;
+}
+
+.vedio-slider .button {
+  display: inline-block;
+  position: relative;
+}
+.vedio-slider .button.is-play {
+  background-color: #fff;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+}
+.vedio-slider .button.is-play .button-outer-circle {
+  background: var(--main-color);
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+}
+.vedio-slider .button.is-play .button-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  transform: translate(-50%, -50%);
+}
+.vedio-slider .button.is-play .button-icon .triangle {
+  animation: fadeIn 7s ease;
+}
+.vedio-slider .button.is-play .button-icon .path {
+  stroke-dasharray: 90;
+  stroke-dashoffset: 0;
+  animation: triangleStroke 3s;
+  animation-timing-function: ease;
+}
+.vedio-slider .has-scale-animation {
+  animation: smallScale 3s infinite;
+}
+.vedio-slider .has-delay-short {
+  animation-delay: 0.5s;
+}
+/* End Vedios Slider */
+
+/* Start Skitter Slider */
+.skitter-slider {
+  padding: var(--main-padding);
+  background-color: #141414;
+}
+.skitter-slider h2::before {
+  content: '';
+  position: absolute;
+  background-color: var(--global-bg);
+  width: 10%;
+  margin: auto;
+  text-align: center;
+  height: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+}
+/* End Skitter Slider */
+/* Start Slider-info */
+.slider-info {
+  background-image: url('../img/party-people-enjoy-concert-at-festival-summer-music-festival-1-1-scaled.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 60vh;
+  z-index: 1;
+}
+.slider-info::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: var(--main-bg-layer);
+  z-index: -1;
+}
+.slider-info .w-10 {
+  width: 50px;
+}
+
+.slider-info .single-item .item > p {
+  font-style: italic;
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+.slider-info .single-item .item .title > p {
+  font-weight: 700;
+}
+.slider-info .single-item .item .title .text-main-color {
+  font-weight: 200;
+  color: var(--main-color);
+}
+.slick-dots li.slick-active button:before {
+  color: var(--main-color);
+}
+.slick-dots li button:before {
+  font-size: 15px;
+  color: var(--main-color);
+}
+/* End Slider-info */
+
+/* Start Card Overlay */
+.card-overlay {
+  position: relative;
+  min-height: 100vh;
+  background-image: url('../img/21-1.jpg');
+  z-index: 1;
+}
+
+.card-overlay::before {
+  position: absolute;
+  content: '';
+  inset: 0;
+  background-color: #2626269e;
+  z-index: -1;
+}
+.card-overlay .card {
+  background-image: url(../img/cute-dj-woman-having-fun-playing-music-at-club-party-1.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 80vh;
+  /* background-position: -95px 0px; */
+}
+@media (max-width: 800px) {
+  .card-overlay {
+    min-height: 50vh;
+    padding: 20px 20px 0 0;
+  }
+  .card-overlay .card {
+    height: 50vh;
+  }
+}
+.card .inner > p {
+  font-weight: 400;
+  font-size: 20px;
+}
+/* End Card Overlay */
+
+/* Start Booking Info */
+.booking-info {
+  padding: var(--main-padding);
+  background-color: #141414;
+}
+.booking-info .heading h2 {
+  font-size: 2.5rem;
+  letter-spacing: 5px;
+}
+.booking-info .heading p {
+  font-weight: 300;
+  font-size: 18px;
+}
+.booking-info .light-box img {
+  height: 100%;
+  filter: grayscale(1);
+  transition: var(--main-transition);
+}
+.booking-info .light-box img:hover {
+  filter: grayscale(0);
+  transform: scale(1.3);
+}
+
+/* End Booking Info */
+/* Start Concat */
+
+.contact {
+  padding: var(--main-padding);
+  position: relative;
+  background-image: url(../img/dg-bg.jpg);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 50vh;
+  z-index: 1;
+}
+@media (max-width: 600px) {
+  .contact {
+    height: 80vh;
+  }
+}
+.contact::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: #212529bf;
+  z-index: -1;
+}
+@media (max-width: 767px) {
+  .contact .row .last {
+    padding-top: 30px;
+    border-top: 2px solid #f8f8f829;
+  }
+}
+@media (min-width: 992px) {
+  .contact .row .second {
+    border-left: 2px solid #f8f8f829;
+  }
+}
+@media (min-width: 768px) {
+  .contact .row .last {
+    border-left: 2px solid #f8f8f829;
+  }
+}
+
+/* End Concat */
+/* Start Footer */
+footer {
+  background-color: #141414;
+}
+footer span {
+  color: var(--alt-color);
+  font-weight: 500;
+}
+/* End Footer */
+
+/* Start Loding */
+#loding {
+  inset: 0;
+  background-color: #1f1f1f;
+  z-index:9999;
+  display: flex;
+
+}
+.loader {
+  animation: rotate 1s infinite;
+  height: 50px;
+  width: 50px;
+}
+
+.loader:before,
+.loader:after {
+  border-radius: 50%;
+  content: '';
+  display: block;
+  height: 20px;
+  width: 20px;
+}
+.loader:before {
+  animation: ball1 1s infinite;
+  background-color: #fff;
+  box-shadow: 30px 0 0 var(--alt-color);
+  margin-bottom: 10px;
+}
+.loader:after {
+  animation: ball2 1s infinite;
+  background-color: var(--alt-color);
+  box-shadow: 30px 0 0 #fff;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg) scale(0.8);
+  }
+  50% {
+    transform: rotate(360deg) scale(1.2);
+  }
+  100% {
+    transform: rotate(720deg) scale(0.8);
+  }
+}
+
+@keyframes ball1 {
+  0% {
+    box-shadow: 30px 0 0 var(--alt-color);
+  }
+  50% {
+    box-shadow: 0 0 0 var(--alt-color);
+    margin-bottom: 0;
+    transform: translate(15px, 15px);
+  }
+  100% {
+    box-shadow: 30px 0 0 var(--alt-color);
+    margin-bottom: 10px;
+  }
+}
+
+@keyframes ball2 {
+  0% {
+    box-shadow: 30px 0 0 #fff;
+  }
+  50% {
+    box-shadow: 0 0 0 #fff;
+    margin-top: -20px;
+    transform: translate(15px, 15px);
+  }
+  100% {
+    box-shadow: 30px 0 0 #fff;
+    margin-top: 0;
+  }
+}
+
+/* End Loding */
