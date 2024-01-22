@@ -25,7 +25,7 @@ $(document).ready(function () {
             scrollTop:
               $(`${sectionName}`).offset().top - $('nav').innerHeight(),
           },
-          3000
+          1000
         );
       });
 
