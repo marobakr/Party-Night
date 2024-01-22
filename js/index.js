@@ -11,6 +11,7 @@ const sec = document.querySelector('.sec');
 $(document).ready(function () {
   // Start Loding
   $('.loader').fadeOut(4000, function () {
+    $(window).scrollTop(0);
     $('#loding').slideUp(2000, function () {
       // Set Body Overflow
       $('body').css('overflow', 'auto');
@@ -29,15 +30,32 @@ $(document).ready(function () {
         );
       });
 
+      let hasScrollingExecuted = false;
+      let hasCounterExecuted = false;
       $(window).on('scroll', function () {
         // Scrolling Animation
         animationScrolling();
+        if (
+          $(window).scrollTop() > $('.discography').offset().top &&
+          !hasScrollingExecuted
+        ) {
+          //* Call Animation Card
+          animationCardParty();
+          hasScrollingExecuted = true;
+        }
+        if (
+          $(window).scrollTop() > $('#about').offset().top &&
+          !hasCounterExecuted
+        ) {
+          //* Call Animation Counter
+          counterRunning();
+          hasCounterExecuted = true;
+        }
       });
     });
+    
   });
 
-  //* Start Animation Card
-  animationCardPart();
   /* Event Counter */
   setInterval(() => {
     calculateRemainingTime();
@@ -205,15 +223,15 @@ function calculateRemainingTime() {
 }
 
 // SlideAnimation Card
-function animationCardPart() {
-  $('.card').eq(0).animate({ height: 'toggle' }, 3000);
-  $('.card').eq(1).animate({ height: 'toggle' }, 3000);
+function animationCardParty() {
+  $('.card').eq(0).animate({ height: 'toggle' }, 2000);
+  $('.card').eq(1).animate({ height: 'toggle' }, 2000);
   $('.card')
     .eq(2)
-    .animate({ height: 'toggle' }, 3000, function () {
-      $('.card').eq(3).animate({ height: 'toggle' }, 3000);
-      $('.card').eq(4).animate({ height: 'toggle' }, 3000);
-      $('.card').eq(5).animate({ height: 'toggle' }, 3000);
+    .animate({ height: 'toggle' }, 2000, function () {
+      $('.card').eq(3).animate({ height: 'toggle' }, 2000);
+      $('.card').eq(4).animate({ height: 'toggle' }, 2000);
+      $('.card').eq(5).animate({ height: 'toggle' }, 2000);
     });
 }
 
@@ -229,7 +247,6 @@ function slideHeroSecion() {
 function animationScrolling() {
   const cuurentPostion = $(window).scrollTop();
   const elementPostion = $('#event').offset().top;
-  const postionAbout = $('#about').offset().top;
 
   //* Change BackGround Nav When i Scrolling
   if (cuurentPostion > elementPostion - $('nav').innerHeight()) {
@@ -239,7 +256,6 @@ function animationScrolling() {
     $('nav').css({ background: 'transparent' });
     $('nav .container').css('padding-inline', '12px');
   }
-
   //* get Current Scroll At Section To Add Class Active To Anchor
   let scrollPosition = $(this).scrollTop();
   $('section').each(function () {
@@ -256,30 +272,32 @@ function animationScrolling() {
       prevId = $(this).attr('id');
       $(`a[href^="#${prevId}"]`).removeClass('active');
     }
+  });
+}
 
-    //* Start Animation Counter Slider
-
-    if (cuurentPostion > postionAbout) {
+function counterRunning() {
+  const cuurentPostion = $(window).scrollTop();
+  const postionAbout = $('#about').offset().top;
+  //* Start Animation Counter Slider
+  // if (cuurentPostion > postionAbout) {
+  $('.num')
+    .eq(0)
+    .slideDown(1000, function () {
+      animateCounter($('#about .num span').eq(0), 15);
       $('.num')
-        .eq(0)
+        .eq(1)
         .slideDown(1000, function () {
-          animateCounter($('#about .num span').eq(0), 15);
+          animateCounter($('#about .num span').eq(1), 50);
           $('.num')
-            .eq(1)
+            .eq(2)
             .slideDown(1000, function () {
-              animateCounter($('#about .num span').eq(1), 50);
+              animateCounter($('#about .num span').eq(2), 800);
               $('.num')
-                .eq(2)
+                .eq(3)
                 .slideDown(1000, function () {
-                  animateCounter($('#about .num span').eq(2), 800);
-                  $('.num')
-                    .eq(3)
-                    .slideDown(1000, function () {
-                      animateCounter($('#about .num span').eq(3), 700);
-                    });
+                  animateCounter($('#about .num span').eq(3), 700);
                 });
             });
         });
-    }
-  });
+    });
 }

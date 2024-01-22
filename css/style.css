@@ -565,9 +565,8 @@ footer span {
 #loding {
   inset: 0;
   background-color: #1f1f1f;
-  z-index:9999;
+  z-index: 9999;
   display: flex;
-
 }
 .loader {
   animation: rotate 1s infinite;
@@ -585,14 +584,14 @@ footer span {
 }
 .loader:before {
   animation: ball1 1s infinite;
-  background-color: #fff;
-  box-shadow: 30px 0 0 var(--alt-color);
+  background-color: var(--alt-color);
+  box-shadow: 30px 0 0 var(--main-color);
   margin-bottom: 10px;
 }
 .loader:after {
   animation: ball2 1s infinite;
-  background-color: var(--alt-color);
-  box-shadow: 30px 0 0 #fff;
+  background-color: var(--main-color);
+  box-shadow: 30px 0 0 var(--alt-color);
 }
 
 @keyframes rotate {
@@ -609,30 +608,30 @@ footer span {
 
 @keyframes ball1 {
   0% {
-    box-shadow: 30px 0 0 var(--alt-color);
+    box-shadow: 30px 0 0 var(--main-color);
   }
   50% {
-    box-shadow: 0 0 0 var(--alt-color);
+    box-shadow: 0 0 0 var(--main-color);
     margin-bottom: 0;
     transform: translate(15px, 15px);
   }
   100% {
-    box-shadow: 30px 0 0 var(--alt-color);
+    box-shadow: 30px 0 0 var(--main-color);
     margin-bottom: 10px;
   }
 }
 
 @keyframes ball2 {
   0% {
-    box-shadow: 30px 0 0 #fff;
+    box-shadow: 30px 0 0var (--alt-color);
   }
   50% {
-    box-shadow: 0 0 0 #fff;
+    box-shadow: 0 0 0 var(--alt-color);
     margin-top: -20px;
     transform: translate(15px, 15px);
   }
   100% {
-    box-shadow: 30px 0 0 #fff;
+    box-shadow: 30px 0 0 var(--alt-color);
     margin-top: 0;
   }
 }
